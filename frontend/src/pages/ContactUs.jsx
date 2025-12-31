@@ -16,7 +16,7 @@ const Contact = () => {
 
       <section className="max-w-7xl mx-auto px-6 py-16 grid md:grid-cols-2 gap-12">
 
-        {/* ================= CONTACT FORM ================= */}
+        {/*  CONTACT FORM */}
         <form>
 
 
@@ -50,7 +50,7 @@ const Contact = () => {
         </div>
         </form>
 
-        {/* ================= ADDRESS + MAP ================= */}
+        {/* ADDRESS + MAP */}
         <div
           className={`p-8 rounded-2xl shadow
             ${isDark ? "bg-gray-800" : "bg-white"}`}

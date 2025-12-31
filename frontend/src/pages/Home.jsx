@@ -17,7 +17,7 @@ import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import { AppContext } from "../Context/ThemeContext";
 
-/* ================= DEPARTMENTS DATA ================= */
+/* DEPARTMENTS DATA */
 const departments = [
   {
     title: "Cardiology",
@@ -51,7 +51,7 @@ const departments = [
   },
 ];
 
-/* ================= CONSULTANTS ================= */
+/* CONSULTANTS */
 const consultants = [
   {
     name: "Marc Parcival",
@@ -83,7 +83,7 @@ const consultants = [
   },
 ];
 
-/* ================= FACILITIES ================= */
+/* FACILITIES */
 const facilities = [
   {
     title: "Modern Laboratory",
@@ -112,7 +112,7 @@ const Home = () => {
     >
       <Navbar />
 
-      {/* ================= EMERGENCY BAR ================= */}
+      {/* EMERGENCY BAR */}
       <div
         className={`fixed top-15 left-0 w-full z-[60] py-2 text-sm font-semibold tracking-wide
     ${isDark ? "bg-red-700 text-white" : "bg-red-600 text-white"}`}
@@ -123,7 +123,7 @@ const Home = () => {
         </span>
       </div>
 
-      {/* ================= HERO ================= */}
+      {/* HERO */}
       <section className="relative w-full h-screen flex items-center overflow-hidden">
         <img
           className="absolute inset-0 w-full h-full object-cover"
@@ -159,7 +159,7 @@ const Home = () => {
         </motion.div>
       </section>
 
-      {/* ================= MEDICAL DEPARTMENTS ================= */}
+      {/* MEDICAL DEPARTMENTS */}
       <section className={`${isDark ? "bg-gray-900" : "bg-white"} py-24`}>
         <div className="max-w-7xl mx-auto px-6">
           <h2 className="text-4xl font-bold text-center mb-16">
@@ -222,7 +222,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* ================= CONSULTANTS ================= */}
+      {/* CONSULTANTS */}
       <section className={`${isDark ? "bg-gray-800" : "bg-gray-100"} py-24`}>
         <div className="max-w-7xl mx-auto px-6">
           <h2 className="text-4xl font-bold text-center mb-16">
@@ -256,7 +256,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* ================= FACILITIES ================= */}
+      {/* FACILITIES */}
       <section className={`${isDark ? "bg-gray-900" : "bg-white"} py-24`}>
         <div className="max-w-6xl mx-auto px-6">
           <h2 className="text-4xl font-bold text-center mb-16">
