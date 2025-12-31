@@ -1,6 +1,7 @@
 import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { AppContext } from "../context/ThemeContext";
+import { IoIosSunny,IoIosMoon } from "react-icons/io";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -34,9 +35,9 @@ const Navbar = () => {
           <button
             onClick={() => setIsDark(!isDark)}
             className={`px-3 py-2 rounded text-sm
-              ${isDark ? "bg-gray-700" : "bg-gray-200"}`}
+              ${isDark ? "bg-gray-700" : "bg-gray-300"}`}
           >
-            {isDark ? "🌙" : "☀️"}
+            {isDark ? <IoIosMoon className="text-xl" /> : <IoIosSunny className="text-xl" />}
           </button>
 
           {/* Mobile Menu Button */}
