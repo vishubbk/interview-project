@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { AppContext } from "../context/ThemeContext";
+import { AppContext } from "../Context/ThemeContext";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
@@ -13,7 +13,7 @@ const Diagnostics = () => {
       }`}
     >
       <Navbar />
- 
+
       <section className="max-w-6xl mx-auto px-6 py-16 flex flex-col-reverse md:flex-row items-center gap-10 md:gap-20">
 
         <div className="left w-full md:w-[60%]">
