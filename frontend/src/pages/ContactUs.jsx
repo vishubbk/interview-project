@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import { AppContext } from "../context/ThemeContext";
+import { AppContext } from "../Context/ThemeContext";
 import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from "react-icons/fa";
 
 const Contact = () => {
