@@ -1,135 +1,260 @@
-import { motion } from "framer-motion";
 import Navbar from "../components/Navbar";
+import { motion } from "framer-motion";
+import { useContext } from "react";
+import { AppContext } from "../context/ThemeContext";
+import {
+  FaHeartbeat,
+  FaBrain,
+  FaBone,
+  FaAmbulance,
+  FaBaby,
+  FaUserMd,
+  FaMicroscope,
+  FaXRay,
+  FaHospital,
+} from "react-icons/fa";
+import Footer from "../components/Footer";
 
-import heroDoctor from "../assets/hero-doctor.png";
-import cardiologyImg from "../assets/cardiology.png";
-import neurologyImg from "../assets/neurology.png";
-import emergencyImg from "../assets/emergency.png";
+/* ================= DEPARTMENTS DATA ================= */
+const departments = [
+  {
+    title: "Cardiology",
+    desc: "Advanced heart care with modern diagnostic and treatment facilities.",
+    icon: <FaHeartbeat />,
+  },
+  {
+    title: "Neurology",
+    desc: "Specialized care for brain, spine, and nervous system disorders.",
+    icon: <FaBrain />,
+  },
+  {
+    title: "Orthopedics",
+    desc: "Bone, joint, and spine treatments by expert surgeons.",
+    icon: <FaBone />,
+  },
+  {
+    title: "Emergency Care",
+    desc: "24/7 emergency services with rapid medical response.",
+    icon: <FaAmbulance />,
+  },
+  {
+    title: "Pediatrics",
+    desc: "Compassionate healthcare services specially designed for children.",
+    icon: <FaBaby />,
+  },
+  {
+    title: "General Medicine",
+    desc: "Comprehensive primary care and diagnosis for all age groups.",
+    icon: <FaUserMd />,
+  },
+];
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 40 },
-  visible: { opacity: 1, y: 0 }
-};
+/* ================= CONSULTANTS ================= */
+const consultants = [
+  {
+    name: "Marc Parcival",
+    specialty: "Cardiologist",
+    photo: "https://st.ourhtmldemo.com/new/Hospitals/images/team/1.jpg",
+    email: "marc@gmail.com",
+    phone: "+321 567 89 0123",
+  },
+  {
+    name: "Sarah Johnson",
+    specialty: "Neurologist",
+    photo: "https://st.ourhtmldemo.com/new/Hospitals/images/team/2.jpg",
+    email: "sarah@gmail.com",
+    phone: "+321 567 89 0123",
+  },
+  {
+    name: "James William",
+    specialty: "Orthopedic",
+    photo: "https://st.ourhtmldemo.com/new/Hospitals/images/team/3.jpg",
+    email: "james@gmail.com",
+    phone: "+321 567 89 0123",
+  },
+  {
+    name: "Emily Stone",
+    specialty: "Pediatrician",
+    photo: "https://st.ourhtmldemo.com/new/Hospitals/images/team/4.jpg",
+    email: "emily@gmail.com",
+    phone: "+321 567 89 0123",
+  },
+];
+
+/* ================= FACILITIES ================= */
+const facilities = [
+  {
+    title: "Modern Laboratory",
+    icon: <FaMicroscope />,
+    desc: "Advanced diagnostic labs with accurate and fast reports.",
+  },
+  {
+    title: "Digital X-Ray",
+    icon: <FaXRay />,
+    desc: "High-quality imaging for precise diagnosis.",
+  },
+  {
+    title: "ICU & Operation Theatres",
+    icon: <FaHospital />,
+    desc: "Fully equipped ICUs and modern operation theatres.",
+  },
+];
 
 const Home = () => {
+  const { isDark } = useContext(AppContext);
+
   return (
-    <div className="bg-gradient-to-br from-blue-50 via-white to-blue-100 min-h-screen">
+    <div
+      className={`min-h-screen transition
+        ${isDark ? "bg-gray-900 text-white" : "bg-gray-100 text-black"}`}
+    >
       <Navbar />
 
-      {/* HERO SECTION */}
-      <section className="pt-28 min-h-[90vh] flex items-center">
-        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+      {/* ================= HERO ================= */}
+      <section className="relative w-full h-screen flex items-center overflow-hidden">
+        <img
+          className="absolute inset-0 w-full h-full object-cover"
+          src="https://images.pexels.com/photos/3873193/pexels-photo-3873193.jpeg"
+          alt="Hospital background"
+        />
 
-          <motion.div
-            variants={fadeUp}
-            initial="hidden"
-            animate="visible"
-            transition={{ duration: 0.8 }}
-          >
-            <h1 className="text-4xl md:text-6xl font-extrabold text-blue-900 mb-4">
-              Caring For Life
-            </h1>
-            <p className="text-xl text-gray-700 mb-3">
-              Quality Healthcare for Everyone
-            </p>
-            <p className="text-gray-600 max-w-md mb-8">
-              ABC Hospital provides advanced medical services with experienced
-              doctors, modern facilities and 24/7 emergency support.
-            </p>
+        <div
+          className={`absolute inset-0
+            ${isDark
+              ? "bg-gradient-to-r from-black/90 via-black/70 to-transparent"
+              : "bg-gradient-to-r from-white/90 via-white/70 to-transparent"}`}
+        />
 
-            <button className="px-8 py-4 bg-blue-600 text-white rounded-full font-semibold hover:bg-blue-700 transition">
-              Book Appointment
-            </button>
-          </motion.div>
+        <motion.div
+          initial={{ opacity: 0, x: -60 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8 }}
+          className={`relative z-10 max-w-xl ml-6 md:ml-20 rounded-xl p-8 shadow-xl
+            ${isDark ? "bg-gray-800/90" : "bg-white/90"}`}
+        >
+          <h1 className="text-3xl md:text-4xl font-bold mb-3">
+            Hospitals providing total healthcare{" "}
+            <span className="text-blue-600">Solutions.</span>
+          </h1>
 
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8 }}
-            className="flex justify-center"
-          >
-            <img
-              src={heroDoctor}
-              alt="Doctor"
-              className="w-[420px] drop-shadow-xl"
-            />
-          </motion.div>
-        </div>
-      </section>
-
-      {/* INTRODUCTION */}
-      <section className="py-20 bg-white">
-        <div className="max-w-5xl mx-auto px-6 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-blue-800 mb-4">
-            Welcome to ABC Hospital
-          </h2>
-          <p className="text-gray-700 text-lg">
-            ABC Hospital is a multi-specialty healthcare center committed to
-            delivering world-class medical services. Our focus is on patient
-            safety, advanced treatments and compassionate care.
+          <p className={`${isDark ? "text-gray-300" : "text-gray-600"} mb-6`}>
+            Complete healthcare services with advanced facilities and
+            experienced doctors.
           </p>
-        </div>
+
+          <div className="flex gap-4">
+            <button className="px-6 py-2 rounded-full border border-blue-600 text-blue-600 font-semibold hover:bg-blue-50 transition">
+              READ MORE
+            </button>
+            <button className="px-6 py-2 rounded-full bg-blue-600 text-white font-semibold hover:bg-blue-700 transition">
+              DEPARTMENTS
+            </button>
+          </div>
+        </motion.div>
       </section>
 
-      {/* SERVICES */}
-      <section className="py-20 bg-blue-50">
-        <div className="max-w-6xl mx-auto px-6">
-          <h2 className="text-3xl font-bold text-center text-blue-800 mb-12">
-            Our Medical Services
+      {/* ================= MEDICAL DEPARTMENTS ================= */}
+      <section className={`${isDark ? "bg-gray-900" : "bg-white"} py-24`}>
+        <div className="max-w-7xl mx-auto px-6">
+          <h2 className="text-4xl font-bold text-center mb-16">
+            Medical Departments
           </h2>
 
-          <div className="grid md:grid-cols-3 gap-10">
-
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              className="bg-white p-8 rounded-2xl shadow text-center"
-            >
-              <img src={cardiologyImg} className="w-20 mx-auto mb-4" />
-              <h3 className="text-xl font-semibold text-blue-700 mb-2">
-                Cardiology
-              </h3>
-              <p className="text-gray-600">
-                Comprehensive heart care with modern technology.
-              </p>
-            </motion.div>
-
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              className="bg-white p-8 rounded-2xl shadow text-center"
-            >
-              <img src={neurologyImg} className="w-20 mx-auto mb-4" />
-              <h3 className="text-xl font-semibold text-blue-700 mb-2">
-                Neurology
-              </h3>
-              <p className="text-gray-600">
-                Advanced treatment for brain and nervous system.
-              </p>
-            </motion.div>
-
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              className="bg-white p-8 rounded-2xl shadow text-center"
-            >
-              <img src={emergencyImg} className="w-20 mx-auto mb-4" />
-              <h3 className="text-xl font-semibold text-blue-700 mb-2">
-                Emergency Care
-              </h3>
-              <p className="text-gray-600">
-                24/7 emergency services with rapid response.
-              </p>
-            </motion.div>
-
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-10">
+            {departments.map((dept, index) => (
+              <motion.div
+                key={index}
+                whileHover={{ scale: 1.05 }}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4 }}
+                className={`p-8 rounded-2xl shadow transition
+                  ${isDark ? "bg-gray-800" : "bg-gray-50 hover:shadow-2xl"}`}
+              >
+                <div className="text-4xl text-blue-600 mb-4">
+                  {dept.icon}
+                </div>
+                <h3 className="text-xl font-semibold mb-2">
+                  {dept.title}
+                </h3>
+                <p className={`${isDark ? "text-gray-400" : "text-gray-600"}`}>
+                  {dept.desc}
+                </p>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* EMERGENCY HIGHLIGHT */}
-      <section className="py-12 bg-gradient-to-r from-red-600 to-red-400 text-white text-center">
-        <h2 className="text-3xl font-bold mb-2">
-          Emergency Call: +91 98765 43210
-        </h2>
-        <p className="text-lg">Available 24/7</p>
+      {/* ================= CONSULTANTS ================= */}
+      <section className={`${isDark ? "bg-gray-800" : "bg-gray-100"} py-24`}>
+        <div className="max-w-7xl mx-auto px-6">
+          <h2 className="text-4xl font-bold text-center mb-16">
+            Meet Our Expert Consultants
+          </h2>
+
+          <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-10">
+            {consultants.map((c, index) => (
+              <motion.div
+                key={index}
+                whileHover={{ y: -10 }}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4 }}
+                className={`p-6 rounded-2xl shadow transition text-center
+                  ${isDark ? "bg-gray-900" : "bg-white hover:shadow-xl"}`}
+              >
+                <img
+                  src={c.photo}
+                  alt={c.name}
+                  className="w-32 h-32 mx-auto rounded-full mb-4 object-cover"
+                />
+                <h3 className="text-lg font-semibold">{c.name}</h3>
+                <p className="text-blue-600 mb-2">{c.specialty}</p>
+                <p className="text-sm text-gray-500">{c.email}</p>
+                <p className="text-sm text-gray-500">{c.phone}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
       </section>
+
+      {/* ================= FACILITIES ================= */}
+      <section className={`${isDark ? "bg-gray-900" : "bg-white"} py-24`}>
+        <div className="max-w-6xl mx-auto px-6">
+          <h2 className="text-4xl font-bold text-center mb-16">
+            Our Facilities
+          </h2>
+
+          <div className="grid md:grid-cols-3 gap-10">
+            {facilities.map((f, index) => (
+              <motion.div
+                key={index}
+                whileHover={{ scale: 1.05 }}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4 }}
+                className={`p-8 rounded-2xl shadow text-center transition
+                  ${isDark ? "bg-gray-800" : "bg-gray-50 hover:shadow-xl"}`}
+              >
+                <div className="text-5xl text-blue-600 mb-4">
+                  {f.icon}
+                </div>
+                <h3 className="text-xl font-semibold mb-2">
+                  {f.title}
+                </h3>
+                <p className={`${isDark ? "text-gray-400" : "text-gray-600"}`}>
+                  {f.desc}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+      <Footer/>
     </div>
   );
 };

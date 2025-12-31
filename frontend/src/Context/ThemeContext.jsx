@@ -2,8 +2,8 @@ import { createContext, useState } from "react";
 
 export const AppContext = createContext();
 
-const AppProvider = ({ children }) => {
-  const [isDark, setIsDark] = useState(false); 
+const ThemeProvider = ({ children }) => {
+  const [isDark, setIsDark] = useState(false);
 
   return (
     <AppContext.Provider value={{ isDark, setIsDark }}>
@@ -12,4 +12,4 @@ const AppProvider = ({ children }) => {
   );
 };
 
-export default AppProvider;
+export default ThemeProvider;
