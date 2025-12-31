@@ -1,6 +1,6 @@
 import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
-import { AppContext } from "../context/ThemeContext";
+import { AppContext } from "../Context/ThemeContext";
 import { IoIosSunny,IoIosMoon } from "react-icons/io";
 
 const Navbar = () => {
