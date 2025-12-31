@@ -1,19 +1,21 @@
-import Navbar from "../components/Navbar";
 import { motion } from "framer-motion";
 import { useContext } from "react";
-import { AppContext } from "../context/ThemeContext";
 import {
-  FaHeartbeat,
-  FaBrain,
-  FaBone,
   FaAmbulance,
   FaBaby,
-  FaUserMd,
-  FaMicroscope,
-  FaXRay,
+  FaBone,
+  FaBrain,
+  FaHeartbeat,
   FaHospital,
+  FaMicroscope,
+  FaPhoneAlt,
+  FaUserMd,
+  FaXRay,
 } from "react-icons/fa";
+import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
+import Navbar from "../components/Navbar";
+import { AppContext } from "../context/ThemeContext";
 
 /* ================= DEPARTMENTS DATA ================= */
 const departments = [
@@ -110,6 +112,17 @@ const Home = () => {
     >
       <Navbar />
 
+      {/* ================= EMERGENCY BAR ================= */}
+      <div
+        className={`fixed top-15 left-0 w-full z-[60] py-2 text-sm font-semibold tracking-wide
+    ${isDark ? "bg-red-700 text-white" : "bg-red-600 text-white"}`}
+      >
+        <span className="animate-pulse  flex justify-center items-center gap-2">
+          <FaPhoneAlt />
+          Emergency Helpline:+321 567 89 0123 (24/7)
+        </span>
+      </div>
+
       {/* ================= HERO ================= */}
       <section className="relative w-full h-screen flex items-center overflow-hidden">
         <img
@@ -120,9 +133,11 @@ const Home = () => {
 
         <div
           className={`absolute inset-0
-            ${isDark
-              ? "bg-gradient-to-r from-black/90 via-black/70 to-transparent"
-              : "bg-gradient-to-r from-white/90 via-white/70 to-transparent"}`}
+            ${
+              isDark
+                ? "bg-gradient-to-r from-black/90 via-black/70 to-transparent"
+                : "bg-gradient-to-r from-white/90 via-white/70 to-transparent"
+            }`}
         />
 
         <motion.div
@@ -141,15 +156,6 @@ const Home = () => {
             Complete healthcare services with advanced facilities and
             experienced doctors.
           </p>
-
-          <div className="flex gap-4">
-            <button className="px-6 py-2 rounded-full border border-blue-600 text-blue-600 font-semibold hover:bg-blue-50 transition">
-              READ MORE
-            </button>
-            <button className="px-6 py-2 rounded-full bg-blue-600 text-white font-semibold hover:bg-blue-700 transition">
-              DEPARTMENTS
-            </button>
-          </div>
         </motion.div>
       </section>
 
@@ -172,15 +178,44 @@ const Home = () => {
                 className={`p-8 rounded-2xl shadow transition
                   ${isDark ? "bg-gray-800" : "bg-gray-50 hover:shadow-2xl"}`}
               >
-                <div className="text-4xl text-blue-600 mb-4">
-                  {dept.icon}
-                </div>
-                <h3 className="text-xl font-semibold mb-2">
-                  {dept.title}
-                </h3>
+                <div className="text-4xl text-blue-600 mb-4">{dept.icon}</div>
+                <h3 className="text-xl font-semibold mb-2">{dept.title}</h3>
                 <p className={`${isDark ? "text-gray-400" : "text-gray-600"}`}>
                   {dept.desc}
                 </p>
+                {/* Add Link to department page if route exists */}
+                {dept.title === "Cardiology" && (
+                  <Link
+                    to="/services/cardiology"
+                    className="inline-block mt-4 text-blue-600 hover:underline font-semibold"
+                  >
+                    Go to Cardiology
+                  </Link>
+                )}
+                {dept.title === "Neurology" && (
+                  <Link
+                    to="/services/neurology"
+                    className="inline-block mt-4 text-blue-600 hover:underline font-semibold"
+                  >
+                    Go to Neurology
+                  </Link>
+                )}
+                {dept.title === "Orthopedics" && (
+                  <Link
+                    to="/services/orthopedics"
+                    className="inline-block mt-4 text-blue-600 hover:underline font-semibold"
+                  >
+                    Go to Orthopedics
+                  </Link>
+                )}
+                {dept.title === "Pediatrics" && (
+                  <Link
+                    to="/services/pediatrics"
+                    className="inline-block mt-4 text-blue-600 hover:underline font-semibold"
+                  >
+                    Go to Pediatrics
+                  </Link>
+                )}
               </motion.div>
             ))}
           </div>
@@ -240,12 +275,8 @@ const Home = () => {
                 className={`p-8 rounded-2xl shadow text-center transition
                   ${isDark ? "bg-gray-800" : "bg-gray-50 hover:shadow-xl"}`}
               >
-                <div className="text-5xl text-blue-600 mb-4">
-                  {f.icon}
-                </div>
-                <h3 className="text-xl font-semibold mb-2">
-                  {f.title}
-                </h3>
+                <div className="text-5xl text-blue-600 mb-4">{f.icon}</div>
+                <h3 className="text-xl font-semibold mb-2">{f.title}</h3>
                 <p className={`${isDark ? "text-gray-400" : "text-gray-600"}`}>
                   {f.desc}
                 </p>
@@ -254,7 +285,7 @@ const Home = () => {
           </div>
         </div>
       </section>
-      <Footer/>
+      <Footer />
     </div>
   );
 };

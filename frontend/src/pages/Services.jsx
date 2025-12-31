@@ -1,37 +1,45 @@
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useContext } from "react";
 import { AppContext } from "../context/ThemeContext";
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 // demo icons (emoji used to keep it simple)
 const servicesData = [
   {
     title: "Emergency Care",
+    path: "/services/emergency-care",
     icon: "🚑",
     desc: "24/7 emergency services with rapid medical response.",
   },
   {
     title: "Cardiology",
+    path: "/services/cardiology",
     icon: "❤️",
     desc: "Advanced heart care with modern diagnostic technology.",
   },
   {
     title: "Orthopedics",
+    path: "/services/orthopedics",
     icon: "🦴",
     desc: "Bone, joint and spine treatments by expert surgeons.",
   },
   {
     title: "Neurology",
+    path: "/services/neurology",
     icon: "🧠",
     desc: "Specialized care for brain and nervous system disorders.",
   },
   {
     title: "Pediatrics",
+    path: "/services/pediatrics",
     icon: "👶",
     desc: "Comprehensive healthcare services for children.",
   },
   {
     title: "Diagnostics",
+    path: "/services/diagnostics",
     icon: "🧪",
     desc: "Accurate lab tests and imaging services.",
   },
@@ -68,37 +76,42 @@ const Services = () => {
       <section className="max-w-7xl mx-auto px-6 pb-20">
         <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-10">
           {servicesData.map((item, index) => (
-            <motion.div
-              key={index}
-              whileHover={{ scale: 1.05 }}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              className={`p-8 rounded-2xl shadow-lg text-center transition
-                ${isDark ? "bg-gray-800" : "bg-white"}`}
-            >
-              {/* Icon */}
-              <div className="text-5xl mb-4">{item.icon}</div>
-
-              {/* Title */}
-              <h3
-                className={`text-xl font-semibold mb-2
-                  ${isDark ? "text-blue-400" : "text-blue-700"}`}
+            <Link to={item.path} className="block" key={index}>
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+                className={`p-8 rounded-2xl shadow-lg text-center transition
+                  ${isDark ? "bg-gray-800" : "bg-white"}`}
               >
-                {item.title}
-              </h3>
+                {/* Icon */}
+                <div className="text-5xl mb-4">{item.icon}</div>
 
-              {/* Description */}
-              <p
-                className={`${isDark ? "text-gray-400" : "text-gray-600"}`}
-              >
-                {item.desc}
-              </p>
-            </motion.div>
+                {/* Title */}
+                <h3
+                  className={`text-xl font-semibold mb-2
+                    ${isDark ? "text-blue-400" : "text-blue-700"}`}
+                >
+                  {item.title}
+                </h3>
+
+                {/* Description */}
+                <p
+                  className={`${isDark ? "text-gray-400" : "text-gray-600"}`}
+                >
+                  {item.desc}
+                </p>
+                <span className="mt-4 inline-block text-blue-600 font-semibold hover:underline">
+                  View More &rarr;
+                </span>
+              </motion.div>
+            </Link>
           ))}
         </div>
       </section>
+     <Footer/>
     </div>
   );
 };

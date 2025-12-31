@@ -14,9 +14,11 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
 
         {/* Logo */}
-        <h1 className={`text-2xl font-bold ${isDark ? "text-blue-400" : "text-blue-700"}`}>
-          ABC Hospital
-        </h1>
+        <Link to="/">
+          <h1 className={`text-2xl font-bold ${isDark ? "text-blue-400" : "text-blue-700"}`}>
+            SDK Hospital
+          </h1>
+        </Link>
 
         {/* Desktop Menu */}
         <ul className="hidden md:flex gap-8 font-medium">

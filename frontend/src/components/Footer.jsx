@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { Link } from "react-router-dom";
 import { AppContext } from "../context/ThemeContext";
 import {
   FaFacebookF,
@@ -24,10 +25,10 @@ const Footer = () => {
         {/* About */}
         <div>
           <h2 className="text-2xl font-bold text-blue-600 mb-4">
-            ABC Hospital
+            SDK Hospital
           </h2>
           <p className="text-sm leading-relaxed">
-            ABC Hospital is committed to providing high-quality healthcare
+            SDK Hospital is committed to providing high-quality healthcare
             services with advanced facilities, experienced doctors, and
             compassionate patient care.
           </p>
@@ -35,14 +36,36 @@ const Footer = () => {
 
         {/* Quick Links */}
         <div>
-          <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
-          <ul className="space-y-2 text-sm">
-            <li className="hover:text-blue-600 cursor-pointer">Home</li>
-            <li className="hover:text-blue-600 cursor-pointer">Services</li>
-            <li className="hover:text-blue-600 cursor-pointer">Departments</li>
-            <li className="hover:text-blue-600 cursor-pointer">Contact</li>
-          </ul>
-        </div>
+  <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
+  <ul className="space-y-2 text-sm">
+    <li>
+      <Link
+        to="/"
+        className="hover:text-blue-600 transition cursor-pointer"
+      >
+        Home
+      </Link>
+    </li>
+
+    <li>
+      <Link
+        to="/services"
+        className="hover:text-blue-600 transition cursor-pointer"
+      >
+        Services
+      </Link>
+    </li>
+
+    <li>
+      <Link
+        to="/contact"
+        className="hover:text-blue-600 transition cursor-pointer"
+      >
+        Contact
+      </Link>
+    </li>
+  </ul>
+</div>
 
         {/* Services */}
         <div>
@@ -70,7 +93,7 @@ const Footer = () => {
             </li>
             <li className="flex items-center gap-3">
               <FaEnvelope className="text-blue-600" />
-              info@abchospital.com
+              info@SDKhospital.com
             </li>
           </ul>
         </div>
@@ -82,23 +105,23 @@ const Footer = () => {
       {/* Bottom Footer */}
       <div className="max-w-7xl mx-auto px-6 py-6 flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
         <p>
-          © {new Date().getFullYear()} ABC Hospital. All rights reserved.
+          © {new Date().getFullYear()} SDK Hospital. All rights reserved.
         </p>
 
         {/* Social Icons */}
         <div className="flex gap-4">
-          <a className="p-2 rounded-full bg-blue-600 text-white hover:opacity-80">
+          <Link className="p-2 rounded-full bg-blue-600 text-white hover:opacity-80">
             <FaFacebookF />
-          </a>
-          <a className="p-2 rounded-full bg-blue-600 text-white hover:opacity-80">
+          </Link>
+          <Link className="p-2 rounded-full bg-blue-600 text-white hover:opacity-80">
             <FaTwitter />
-          </a>
-          <a className="p-2 rounded-full bg-blue-600 text-white hover:opacity-80">
+          </Link>
+          <Link className="p-2 rounded-full bg-blue-600 text-white hover:opacity-80">
             <FaInstagram />
-          </a>
-          <a className="p-2 rounded-full bg-blue-600 text-white hover:opacity-80">
+          </Link>
+          <Link  className="p-2 rounded-full bg-blue-600 text-white hover:opacity-80">
             <FaLinkedinIn />
-          </a>
+          </Link>
         </div>
       </div>
     </footer>
