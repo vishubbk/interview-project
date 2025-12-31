@@ -1,0 +1,31 @@
+# Ignore node_modules folder
+node_modules/
+
+# Ignore build output
+dist/
+build/
+
+# Ignore environment variable files
+.env
+.env.local
+
+# Ignore log files
+*.log
+
+# Ignore OS generated files
+.DS_Store
+
+# Ignore frontend specific files
+/frontend/node_modules
+/frontend/build
+/frontend/dist
+/frontend/.env
+/frontend/.next
+/frontend/.cache
+
+# Ignore backend specific files
+/backend/node_modules
+/backend/dist
+/backend/.env
+/backend/.cache
+
