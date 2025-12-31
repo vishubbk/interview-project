@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useContext } from "react";
-import { AppContext } from "../context/ThemeContext";
+import { AppContext } from "../Context/ThemeContext";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 

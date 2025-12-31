@@ -15,7 +15,7 @@ import {
 import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
-import { AppContext } from "../context/ThemeContext";
+import { AppContext } from "../Context/ThemeContext";
 
 /* ================= DEPARTMENTS DATA ================= */
 const departments = [
